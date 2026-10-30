@@ -1,0 +1,223 @@
+[
+  {
+    "kind": "editorial",
+    "source": "BOLDPAGE",
+    "subject": "강유석",
+    "strap": "An editorial in contrast",
+    "label": "커버 화보",
+    "note": "소년적인 인상에서 날카로운 테일러링까지. 한 사람의 여러 얼굴을 룩의 변화로 보여준 화보입니다.",
+    "role": "공식 표기 · Stylist 박선용, 김소이",
+    "images": [
+      "assets/fashion/bold_01.jpg",
+      "assets/fashion/bold_03.jpg",
+      "assets/fashion/bold_02.jpg",
+      "assets/fashion/bold_04.jpg"
+    ],
+    "credit": "assets/fashion/credits/boldpage_official_credit.png"
+  },
+  {
+    "kind": "editorial",
+    "source": "SINGLES",
+    "subject": "차준환",
+    "strap": "Body in motion",
+    "label": "매거진 화보",
+    "note": "피겨 선수의 선과 몸의 움직임을 중심에 둔 룩. 의상의 실루엣을 통해 강한 인상을 완성한 에디토리얼입니다.",
+    "role": "스타일링 작업 참여 아카이브",
+    "images": [
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/editorial/cha_singles_cover.jpg",
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/editorial/cha_singles_04.webp",
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/editorial/cha_singles_09.webp"
+    ]
+  },
+  {
+    "kind": "editorial",
+    "source": "HARPER’S BAZAAR",
+    "subject": "신승호",
+    "strap": "Shades of black",
+    "label": "매거진 화보",
+    "note": "흑백의 명암과 소재 대비가 인물의 분위기를 결정하는 에디토리얼.",
+    "role": "스타일링 작업 참여 아카이브",
+    "images": [
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/editorial/shin_bazaar_lead.jpg",
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/editorial/shin_bazaar_02.webp",
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/editorial/shin_bazaar_03.webp"
+    ]
+  },
+  {
+    "kind": "editorial",
+    "source": "VOGUE",
+    "subject": "하정우",
+    "strap": "Cinematic wardrobe",
+    "label": "매거진 화보",
+    "note": "서사적인 장면 안에서 클래식 남성복의 선을 강조한 화보입니다.",
+    "role": "스타일링 작업 참여 아카이브",
+    "images": [
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/editorial/ha_vogue_lead.jpg",
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/editorial/ha_vogue_02.webp",
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/editorial/ha_vogue_04.webp"
+    ]
+  },
+  {
+    "kind": "editorial",
+    "source": "VOGUE",
+    "subject": "구교환 · 〈군체〉",
+    "strap": "A collective silhouette",
+    "label": "단체 에디토리얼",
+    "note": "서로 다른 인물이 한 프레임에 모였을 때 의상 소재와 실루엣이 만드는 리듬을 볼 수 있는 작업입니다.",
+    "role": "스타일링 작업 참여 아카이브",
+    "images": [
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/editorial/koo_collective_lead.jpg",
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/editorial/koo_collective_02.webp",
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/editorial/koo_collective_03.webp"
+    ]
+  },
+  {
+    "kind": "editorial",
+    "source": "MEN NOBLESSE",
+    "subject": "하정우 · RALPH LAUREN PURPLE LABEL",
+    "strap": "Heritage, reimagined",
+    "label": "커버 화보",
+    "note": "유서 깊은 테일러링과 공간의 색감이 만나는 커버 스토리.",
+    "role": "공식 표기 · 스타일링 이현하 / 어시스턴트 김소이, 류도원",
+    "images": [
+      "assets/fashion/men_01.jpg",
+      "assets/fashion/men_02.jpg",
+      "assets/fashion/men_03.jpg",
+      "assets/fashion/men_04.jpg"
+    ],
+    "credit": "assets/fashion/credits/men_noblesse_credit.png"
+  },
+  {
+    "kind": "editorial",
+    "source": "BROOKS BROTHERS × BAZAAR",
+    "subject": "구교환",
+    "strap": "Classic with a twist",
+    "label": "브랜드 캠페인",
+    "note": "브랜드의 프레피 코드를 배우 특유의 온도와 움직임으로 재해석한 캠페인.",
+    "role": "캠페인 스타일링 관련 참여 아카이브",
+    "images": [
+      "assets/fashion/koo_01.jpg",
+      "assets/fashion/koo_04.jpg",
+      "assets/fashion/koo_05.jpg",
+      "assets/fashion/koo_06.jpg"
+    ],
+    "link": "https://www.harpersbazaar.co.kr/article/1900044"
+  },
+  {
+    "kind": "editorial",
+    "source": "OLIVE YOUNG MAGAZINE",
+    "subject": "3 MEN’S STYLE IN SPRING",
+    "strap": "Spring essentials",
+    "label": "브랜드 매거진",
+    "note": "화이트 스튜디오와 컬러 포인트가 중심이 되는 봄 남성 스타일링 화보입니다.",
+    "role": "스타일링 작업 참여 아카이브",
+    "images": [
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/oliveyoung/oy_lead.jpg",
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/oliveyoung/oy_02.jpg",
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/oliveyoung/oy_04.jpg"
+    ]
+  },
+  {
+    "kind": "drama",
+    "source": "NETFLIX",
+    "subject": "연애대전",
+    "strap": "Costume Department",
+    "label": "드라마 · 의상팀",
+    "note": "작품의 인물과 장면을 위한 의상팀 참여 기록입니다.",
+    "role": "드라마 의상팀 참여",
+    "images": [
+      "assets/fashion/drama/love_to_hate.webp"
+    ]
+  },
+  {
+    "kind": "drama",
+    "source": "ENA",
+    "subject": "얼어죽을 연애따위",
+    "strap": "Costume Department",
+    "label": "드라마 · 의상팀",
+    "note": "드라마 의상팀으로 참여한 현장 작업입니다.",
+    "role": "드라마 의상팀 참여",
+    "images": [
+      "assets/fashion/drama/love_is_for_suckers.webp"
+    ]
+  },
+  {
+    "kind": "drama",
+    "source": "MBC",
+    "subject": "넘버스",
+    "strap": "Costume for character",
+    "label": "드라마 · 배우 담당",
+    "note": "배우 의상 관련 현장 참여 기록입니다.",
+    "role": "이성열 관련 의상 참여",
+    "images": [
+      "assets/fashion/drama/numbers.webp"
+    ]
+  },
+  {
+    "kind": "drama",
+    "source": "tvN",
+    "subject": "연예인 매니저로 살아남기",
+    "strap": "Costume for character",
+    "label": "드라마 · 배우 담당",
+    "note": "장면과 캐릭터를 위한 의상 관련 현장 참여 작업입니다.",
+    "role": "김국희 관련 의상 참여",
+    "images": [
+      "assets/fashion/drama/behind_every_star.webp"
+    ]
+  },
+  {
+    "kind": "drama",
+    "source": "ENA · 지니TV",
+    "subject": "아이돌아이",
+    "strap": "Costume for character",
+    "label": "드라마 · 배우 담당",
+    "note": "드라마 의상 관련 작업을 함께한 참여 기록입니다.",
+    "role": "김재영 관련 의상 참여",
+    "images": [
+      "assets/fashion/drama/idol_i.webp"
+    ]
+  },
+  {
+    "kind": "stage",
+    "source": "&TEAM · BEWITCHED",
+    "subject": "STAGE 01",
+    "strap": "Performance styling",
+    "label": "음악방송 무대",
+    "note": "음악방송의 움직임과 조명에 맞춘 의상 준비·현장 참여 아카이브.",
+    "role": "스타일링 팀 참여",
+    "images": [
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/andteam/stage1_lead.jpg",
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/andteam/stage1_01.jpg",
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/andteam/stage1_02.jpg"
+    ],
+    "link": "https://www.youtube.com/watch?v=1XNv2OuPJjI"
+  },
+  {
+    "kind": "stage",
+    "source": "&TEAM · BEWITCHED",
+    "subject": "STAGE 02",
+    "strap": "Performance styling",
+    "label": "음악방송 무대",
+    "note": "블랙 룩의 디테일과 카메라 안에서 보이는 질감을 다룬 무대 작업 기록입니다.",
+    "role": "스타일링 팀 참여",
+    "images": [
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/andteam/stage2_lead.jpg",
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/andteam/stage2_01.jpg"
+    ],
+    "link": "https://www.youtube.com/watch?v=KMzV5SQDZJo"
+  },
+  {
+    "kind": "stage",
+    "source": "&TEAM · BEWITCHED",
+    "subject": "LIVE CLIP",
+    "strap": "Close-up performance",
+    "label": "라이브 영상",
+    "note": "라이브 클립을 위한 무대 스타일링 팀 참여 아카이브.",
+    "role": "스타일링 팀 참여",
+    "images": [
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/andteam/clip_lead.jpg",
+      "https://ejdms499-wq.github.io/0824_01/assets/projects/styling/andteam/clip_01.jpg"
+    ],
+    "link": "https://www.youtube.com/watch?v=Z7tiMUiSORo"
+  }
+]

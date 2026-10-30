@@ -1,0 +1,96 @@
+/* ISSUE 12 / SOY KIM — LIMITED TYPE PALETTE, LIVE FOLIO, EDITORIAL BALANCE
+   Two typographic roles, one minimal reading accent. Project assets and decks untouched. */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+:root{
+ --editorial-serif:'Bodoni Moda','NanumMyeongjo',Georgia,serif;
+ --editorial-sans:'Noto Sans KR','NanumBarunGothic','Apple SD Gothic Neo',Arial,sans-serif;
+ --serif:var(--editorial-serif);
+ --display:var(--editorial-serif);
+ --kserif:var(--editorial-serif);
+ --sans:var(--editorial-sans);
+ --mono:var(--editorial-sans);
+ --signal:#9db4ff;
+}
+body,input,button,select{font-family:var(--editorial-sans)}
+/* Every tiny label shares the same sans family. Use serif only for editorial headline, quotations and folios. */
+.eyebrow,.mini-label,.running-head,.tiny-heading,.project-brow,.project-mini-folio,
+.project-info dt,.project-info dd,.project-links a,.project-metrics span,.deck-heading,
+.fashion-footnote,.fc-picker-row,.side-link,.edition,.side-title,.masthead-kicker,
+.project-image figcaption,.deck-controls,.fc-story-top,.fc-work-meta,.fc-photo-footer,
+.project-end,.contact-channel,.contact-end,.contact-edition{
+ font-family:var(--editorial-sans)!important;
+}
+.masthead-block h1,.credits-headline h2,.contents-left h2,.about-grid h2,
+.project-folio,.contact h2,.asidescript,.experience-number,.method-head h2,
+.fc-story-content h3,.fc-story-subject,.side-bottom p{
+ font-family:var(--editorial-serif)!important;
+}
+.project-heading h2,.project-heading p,.intro-feature h2,.project-description,
+.project-info dd,.side-link span{font-family:var(--editorial-sans)!important;}
+.project-heading p,.intro-feature h2{font-family:var(--editorial-serif)!important;}
+/* Neutral-black sidebar; only the current entry gets a single muted electric-blue marker. */
+.side{background:#080808!important;color:#f6f5f2!important;border-right:1px solid #191919!important;}
+.side-logo{border-bottom:1px solid rgba(255,255,255,.42)!important;}
+.side-logo>span{font-family:var(--editorial-serif)!important;font-weight:500!important;letter-spacing:-.12em;}
+.side-title{border-bottom:0!important;margin-bottom:7px;padding-bottom:7px!important;}
+.side-link{position:relative;border:0!important;color:#dadada!important;
+ display:grid;grid-template-columns:22px minmax(0,1fr);padding:11px 11px 11px 9px!important;
+ margin:2px -6px;transition:background .22s ease,padding .22s ease,color .22s ease!important;
+ border-radius:0;letter-spacing:-.025em;font-size:11px!important;}
+.side-link i{color:#8d8d8d!important;font:500 9px/1.4 var(--editorial-sans)!important;}
+.side-link::before{content:'';position:absolute;left:0;top:23%;height:54%;width:3px;
+ background:var(--signal);transform:scaleY(0);transform-origin:center;transition:transform .22s ease;}
+.side-link:hover{background:#181818!important;color:white!important;padding-left:12px!important;}
+.side-link.active{background:#1c1c1c!important;color:#fff!important;padding-left:14px!important;}
+.side-link.active::before{transform:scaleY(1);}
+.side-link.active i{color:var(--signal)!important;}
+.side-link.active::after{content:'';width:4px;height:4px;border-radius:50%;background:var(--signal);
+ position:absolute;right:10px;top:calc(50% - 2px)}
+.side-bottom small{border-color:#333!important;}
+.side-bottom p{font-size:15px!important;line-height:1.24!important;}
+.side-footlinks{border-color:#5e5e5e!important;}
+.reader-progress{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;
+ column-gap:8px;row-gap:8px;margin:8px 0 18px;padding:0 0 3px;
+ font:600 8px/1.3 var(--editorial-sans);letter-spacing:.11em;color:#b9b9b9;}
+.reader-progress span:last-of-type{color:var(--signal);letter-spacing:.08em;}
+.reader-progress i{display:block;position:relative;height:1px;flex-basis:100%;background:rgba(255,255,255,.22)}
+.reader-progress b{position:absolute;left:0;top:0;width:100%;height:100%;background:var(--signal);
+ transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
+/* Reduce compositional noise: a thin horizontal issue signature, not another text card. */
+.masthead-sub{border-top-width:2px!important;}
+.masthead-block h1{font-weight:400!important;letter-spacing:-.105em!important;}
+.intro-feature h2{font-weight:500!important;letter-spacing:-.065em!important;}
+.intro-aside .asidescript{font-weight:400!important;}
+.project-heading h2{font-weight:700!important;letter-spacing:-.065em!important;}
+.project-heading p{font-weight:400!important;}
+/* Specific correction: WIZARD BAKERY needed a two-line poster-style title that was out of balance
+   with the landscape cover. Give the cover the lead while keeping the type aligned to its top third. */
+#project-wizard .project-heading-overline{margin-bottom:clamp(26px,2.3vw,42px)!important;}
+#project-wizard .project-heading h2{font-size:clamp(39px,3.75vw,65px)!important;line-height:1.1!important;
+ letter-spacing:-.072em!important;word-break:keep-all;white-space:nowrap;}
+#project-wizard .project-heading p{margin-top:9px!important;margin-bottom:clamp(25px,2vw,34px)!important;}
+#project-wizard .project-description{margin-bottom:clamp(17px,1.5vw,25px)!important;}
+#project-wizard .project-metrics{margin-bottom:17px!important;}
+#project-wizard .project-spread-grid{align-items:start!important;}
+#project-wizard .project-image-asset{object-fit:contain!important;object-position:center center!important;}
+/* Avoid many micro-dividers in the reading flow. */
+.project-spread .tiny-heading{letter-spacing:.09em!important;}
+.project-links a+a{border-top:0!important;}
+.deck-heading{border-bottom:0!important;}
+.project-metrics>div,.project-info dl>div{border:0!important;}
+#toc a{border-bottom-color:rgba(0,0,0,.10)!important;}
+/* Editorial kick: micro folio accent, visible only when hovering a story / index row. */
+#toc a:hover b{color:#314bc0!important;transform:translate(3px,-3px)}
+#toc a b{transition:color .22s ease,transform .22s ease}
+@media(max-width:1400px){
+ #project-wizard .project-heading h2{font-size:clamp(33px,3.3vw,49px)!important;white-space:normal;}
+}
+@media(max-width:980px){
+ #project-wizard .project-heading h2{font-size:clamp(43px,7.2vw,70px)!important;white-space:normal;}
+ #project-wizard .project-heading-overline{margin-bottom:18px!important;}
+}
+@media(max-width:760px){
+ #project-wizard .project-heading h2{font-size:clamp(36px,9.1vw,58px)!important;line-height:1.06!important;}
+ .reader-progress{margin-bottom:10px;}
+}
+@media(prefers-reduced-motion:reduce){.reader-progress b,.side-link,.side-link::before{transition:none!important}}

@@ -1,0 +1,109 @@
+/* ISSUE 14 — SOY KIM / THE ATELIER EDIT
+   Correct intrinsic-image sizing; rebalance the one non-deck story;
+   two optical type voices, one deliberate typographic hierarchy.
+   No source pictures, project text or decks changed. */
+:root{
+ --editorial-serif:'Bodoni Moda',Georgia,'Times New Roman',serif;
+ --editorial-sans:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;
+ --editorial-ink:#111;
+ --editorial-muted:#777;
+}
+/* TYPOGRAPHY — 2 families, not an accumulation of unrelated Korean serif fallbacks.
+   Bodoni is reserved for English display/folio. Everything functional,
+   Korean headings and descriptions use one modern sans family. */
+body,button,select,input,textarea,
+.project-heading h2,.project-heading p,.project-description,
+.project-info dt,.project-info dd,.project-metrics strong,.project-metrics span,
+.intro-feature h2,.intro-feature>p,.about-grid .about-lead,
+.fc-story-subject,.fc-story-content>p,.method-lede p,.method-steps h3,
+.contact-panel h2,.contact-copy,.side-link,.tech-pills li,
+.project-links a,.deck-controls,.deck-heading,.fc-picker-row,
+.fashion-footnote,#toc strong,#toc em{
+ font-family:var(--editorial-sans)!important;
+}
+.masthead-block h1,.credits-headline h2,.contents-left h2,
+.about-grid h2,.method-head h2,.fc-story-content h3,
+.fc-story-content h3 em,.asidescript,.experience-number,
+.project-mini-folio,.project-folio,.fc-issue-index,
+.side-logo>span{
+ font-family:var(--editorial-serif)!important;
+}
+/* ONE editorial caption system; there is no need for four microtype treatments. */
+.running-head,.tiny-heading,.eyebrow,.project-brow,.project-mini-folio,
+.project-image figcaption,.project-info dt,.fc-work-meta,.project-end,
+.deck-title,.deck-count,.contact-channel,.intro-aside-top,
+.project-links a,.deck-controls,.side-title,.fc-photo-footer{
+ letter-spacing:.075em!important;
+}
+.project-heading h2{
+ font-weight:700!important;
+ font-size:clamp(51px,5.0vw,86px)!important;
+ line-height:1.065!important;
+ letter-spacing:-.073em!important;
+}
+.project-heading p{font-weight:400!important;font-size:clamp(16px,1.42vw,22px)!important;line-height:1.56!important;letter-spacing:-.045em!important;}
+.project-description{font-size:clamp(13px,1.02vw,16px)!important;line-height:1.8!important;font-weight:400!important;letter-spacing:-.025em!important;}
+.project-metrics strong{font-weight:400!important;letter-spacing:-.075em!important;font-variant-numeric:tabular-nums;}
+.intro-feature h2{font-weight:500!important;line-height:1.46!important;letter-spacing:-.062em!important;}
+/* IMAGE FIT BUG: square sources were rendered at element width, e.g. 798x798,
+   inside an overflow-clipped 798x449 (16:9) frame. object-fit alone cannot
+   correct an oversized replaced element. Make the img match its FRAME. */
+.project-spread .project-image-asset{
+ position:relative!important;overflow:hidden!important;
+ aspect-ratio:16/9!important;
+ width:100%!important;height:auto!important;
+ isolation:isolate;background:#101219!important;
+}
+.project-spread .project-image-asset img{
+ position:absolute!important;inset:0!important;
+ width:100%!important;height:100%!important;
+ max-width:100%!important;max-height:100%!important;
+ min-width:0!important;min-height:0!important;
+ object-fit:contain!important;object-position:50% 50%!important;
+ background:#101219!important;transform:none!important;
+}
+.project-spread .project-image-asset .image-fallback{pointer-events:none;}
+/* Square artwork is intentionally letterboxed like an exhibition print, never cropped. */
+#project-stones .project-image-asset{background:#151821!important;}
+#project-stones .project-image-asset img{background:#151821!important;}
+/* Original puddingberry is already 1376x768. Keep a true 16:9 cover. */
+#project-pudding .project-image-asset{background:#f6f0e9!important;}
+#project-pudding .project-image-asset img{background:#f6f0e9!important;}
+/* PUDDING — a no-deck chapter: bring narrative/credits into the same optical
+   rectangle as the photograph rather than leaving an oversized heading spacer. */
+@media(min-width:981px){
+ #project-pudding .project-heading-overline{margin-bottom:clamp(14px,1.6vw,25px)!important;}
+ #project-pudding .project-heading h2{font-size:clamp(49px,4.4vw,77px)!important;margin-bottom:8px!important;}
+ #project-pudding .project-heading p{margin:0 0 clamp(18px,2vw,31px)!important;}
+ #project-pudding .project-description{margin-bottom:16px!important;line-height:1.72!important;}
+ #project-pudding .project-info dl{margin:10px 0 12px!important;gap:7px!important;}
+ #project-pudding .project-info dl>div:has(.tech-pills){margin:2px 0 0!important;padding:12px 15px!important;}
+ #project-pudding .project-info .project-links{margin-top:0!important;padding-top:7px!important;}
+ #project-pudding .project-info .project-links a{padding:4px 0!important;}
+ #project-pudding .project-info{min-height:0!important;height:auto!important;justify-content:flex-start!important;}
+ #project-pudding .project-media{height:auto!important;}
+}
+/* One consistent image and caption rhythm; less decoration, more space to read. */
+.project-spread .project-image figcaption{min-height:32px!important;padding:9px 0 7px!important;}
+.project-spread .deck{margin-top:clamp(20px,1.9vw,29px)!important;}
+.project-spread .deck-heading{margin-bottom:11px!important;min-height:40px!important;}
+/* Reduce competing rules: preserve only chapter boundaries and useful nav affordances. */
+.project-spread .project-end{opacity:.52!important;}
+.project-spread .project-image figcaption{border:0!important;}
+.project-spread .deck-controls{border:0!important;}
+.project-spread .project-heading-overline{border:0!important;}
+.project-spread .project-links{border:0!important;}
+.project-spread .project-links a{border:0!important;}
+/* Editorial interaction: only the active element gets emphasis. */
+.project-spread .deck-thumb:hover{filter:brightness(.92)!important;}
+.project-spread .deck-open-button:hover{background:#fff!important;color:#111!important;}
+@media(max-width:980px){
+ .project-spread .project-heading h2{font-size:clamp(45px,6.8vw,71px)!important;}
+ #project-pudding .project-heading-overline{margin-bottom:22px!important;}
+ #project-pudding .project-heading p{margin-bottom:18px!important;}
+}
+@media(max-width:650px){
+ .project-spread .project-heading h2{font-size:clamp(38px,9.3vw,59px)!important;}
+ .project-spread .project-heading p{font-size:clamp(15px,4.3vw,19px)!important;}
+ .project-description{font-size:13px!important;}
+}

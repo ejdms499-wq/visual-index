@@ -1,0 +1,79 @@
+/* ISSUE 09 · LESS RULES, BETTER EDITORIAL PROPORTION
+   Changes limited to typography separators, credit image framing, spacing.
+   No project thumbnails, scripts, content, or slide paths have been changed. */
+:root { --paper:#fff; --ivory:#fff; --rule:rgba(13,13,13,.14); }
+
+/* Luxury editorial hierarchy: one strong divider per chapter, not per fragment. */
+.masthead-sub { border-top-width:2px!important; border-bottom:0!important; }
+.intro-footer { border-top:0!important; }
+.intro-aside { border-left-color:rgba(0,0,0,.10)!important; }
+.aside-meta { border-top-color:rgba(0,0,0,.16)!important; }
+.side-link { border-bottom-color:rgba(255,255,255,.10)!important; }
+.side-link.active { border-bottom-color:rgba(255,255,255,.4)!important; }
+.side-footlinks { border-top-color:#555!important; }
+
+/* Credit editorial: the picture, not its artificial grey rectangle, owns its space. */
+.credits-headline { border-bottom:0!important; padding-bottom:clamp(12px,1.5vw,26px)!important; }
+.fc-picker-row { border-top:0!important; border-bottom:1px solid #111!important; margin-top:6px!important; padding:7px 0 15px!important; }
+.fc-stage { display:grid!important; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)!important; gap:clamp(32px,4.0vw,78px)!important; margin-top:clamp(29px,3vw,49px)!important; align-items:start!important; }
+.fc-photo-block{display:flex!important;flex-direction:column!important;min-width:0!important;}
+.fc-asset { position:relative; display:flex!important; width:100%!important; height:auto!important; min-height:0!important; max-height:none!important; overflow:visible!important; align-items:flex-start!important; justify-content:center!important; background:transparent!important; aspect-ratio:auto!important; }
+.fc-asset img { position:relative; width:auto!important; height:auto!important; max-width:100%!important; max-height:clamp(415px,49vw,675px)!important; object-fit:contain!important; object-position:top center!important; }
+.fc-asset-placeholder { inset:0; min-height:310px; z-index:0; background:#f3f3f1!important; }
+.fc-asset.is-loaded .fc-asset-placeholder { display:none!important; }
+.fc-photo-footer {border-top:0!important;padding-top:12px!important;margin-top:0!important; font-size:9px!important;}
+.fc-story-top{border:0!important; padding:0 0 16px!important; color:#5c5c5c!important; }
+.fc-story-content{padding:clamp(20px,3vw,50px) 0 clamp(20px,2.4vw,38px)!important;}
+.fc-story-content h3{font-size:clamp(46px,5vw,90px)!important;}
+.fc-story-subject{margin:clamp(18px,2vw,33px) 0 13px!important;}
+.fc-work-meta{border-top:1px solid rgba(0,0,0,.4)!important;border-bottom:0!important;padding:17px 0 11px!important;}
+.fc-photostrip{margin-top:25px!important; padding:0!important;}
+.fc-story-bottom{border-top:1px solid rgba(0,0,0,.35)!important;margin-top:18px!important;}
+.credits .fashion-footnote{border-top:0!important; margin-top:clamp(42px,4vw,68px)!important;}
+
+/* Index and case studies: preserve one chapter boundary, remove repetitive internal lines. */
+.contents{border-top:0!important;}
+#toc{border-top:0!important;}
+#toc a{border-bottom-color:rgba(0,0,0,.13)!important;}
+.project-spread{border-top:1px solid #ebebeb!important; padding-top:clamp(78px,7vw,120px)!important;}
+.project-spread .tiny-heading {border-top:0!important;padding-top:0!important;}
+.project-heading {padding-top:clamp(22px,3vw,43px)!important;}
+.project-description {border-bottom:0!important;padding-bottom:10px!important;}
+.project-info dl>div{border-top:0!important;}
+.project-info dl>div+div{border-top:1px solid rgba(0,0,0,.11)!important;}
+.project-info dl>div:has(.tech-pills){border-top:0!important;}
+.project-info .tech-pills li{border-bottom:0!important;}
+.project-image figcaption{border-bottom:0!important;}
+.project-links{border-top:0!important;}
+.project-links a{border-bottom-color:rgba(0,0,0,.14)!important;}
+.deck {border-top:0!important;padding-top:clamp(15px,1.6vw,27px)!important;}
+.deck-heading {border-bottom:1px solid rgba(0,0,0,.35)!important;padding-bottom:11px!important;}
+.project-end {border-top:0!important;margin-top:clamp(26px,3vw,54px)!important;}
+.project-gallery .tiny-heading{border-top:0!important;}
+#project-simmyo .project-info .tiny-heading{border-top:0!important;}
+.method-spread .tiny-heading {border-top:0!important;}
+.about-grid>div {border-top:0!important;}
+.about-grid dl>div {border-top:1px solid rgba(0,0,0,.11)!important;}
+
+/* The case-study information now groups by spacing instead of a ledger of rules. */
+.project-metrics { border-bottom:0!important; margin-bottom:10px!important; }
+.project-info dl { border-top:0!important; margin-bottom:12px!important; }
+.project-info dl>div { border-bottom:0!important; }
+.project-info dl>div+div { border-top:0!important; }
+.project-links a { border-bottom:0!important; }
+.project-links a+a { border-top:1px solid rgba(0,0,0,.09)!important; }
+
+@media (max-width:1000px){
+ .fc-stage{grid-template-columns:minmax(0,1fr)!important;gap:24px!important;}
+ .fc-asset{justify-content:flex-start!important;}
+ .fc-asset img{max-height:clamp(380px,68vw,590px)!important;}
+ .fc-story-content{padding:24px 0!important;}
+}
+@media (max-width:650px){
+ .fc-stage{gap:16px!important;}
+ .fc-asset img{max-height:clamp(315px,110vw,490px)!important;}
+ .fc-story-content h3{font-size:clamp(41px,10vw,65px)!important;}
+ .fc-picker-row{gap:14px!important;}
+ .project-spread{padding-top:68px!important;}
+ .credits-headline{padding-top:42px!important;}
+}

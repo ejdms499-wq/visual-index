@@ -1,0 +1,132 @@
+/* SOY KIM — ISSUE 08 / IMAGE SCALE CORRECTIONS
+   Only scale, proportion and spacing change. All source photos and content stay intact. */
+
+/* Cover thumbnails: remove the earlier forced height that contradicted 16:9.
+   No crops, no stretched pixels, no distortion of original artwork. */
+.project-image-asset {
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 16 / 9 !important;
+  display: grid !important;
+  place-items: center !important;
+  overflow: hidden;
+}
+.project-image-asset img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+/* Presentation thumbnails retain the exact slide layout. */
+.deck-thumb img, .deck-photo {
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* The fashion photograph is a print, not a stretched full-screen billboard.
+   Cap the display height to preserve perceived sharpness of archived images. */
+.fc-stage {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: clamp(30px, 3.75vw, 68px) !important;
+  align-items: start;
+}
+.fc-photo-block { min-width:0; width:100%; max-width:100%; }
+.fc-asset {
+  height: clamp(355px, 34vw, 535px) !important;
+  min-height: 0 !important;
+  max-height: 535px !important;
+  background: #f3f2f0 !important;
+  overflow: hidden;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.fc-asset img {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  flex: 0 1 auto;
+}
+.fc-asset-placeholder { z-index:0; }
+.fc-asset img { z-index:2; }
+.fc-strip-images button {
+  flex: 0 0 clamp(70px, 6.4vw, 90px) !important;
+  height: clamp(78px, 7.3vw, 104px) !important;
+  background: #f3f2f0;
+}
+.fc-strip-images img {
+  object-fit: contain !important;
+  object-position: center center !important;
+  width:100%;height:100%;
+}
+/* Keep credit text and image at parallel visual weight. */
+.fc-story-content { padding-top:clamp(23px,2.65vw,47px) !important; }
+.fc-story-content h3 { font-size:clamp(42px,4.15vw,75px) !important; }
+
+/* Simmyo uses small archival illustration scans (260–351 px wide).
+   Prevent upscaling these into oversized tiles. Original aspect ratios stay intact. */
+#project-simmyo .project-info .project-gallery {
+  width:100%;
+  max-width:445px;
+  margin-top:clamp(24px,2.8vw,42px) !important;
+  align-self:flex-start;
+}
+#project-simmyo .project-info .gallery-row {
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:11px !important;
+  align-items:stretch;
+}
+#project-simmyo .project-info .gallery-row a {
+  display:block;
+  min-width:0;
+  background:#f1efeb !important;
+  overflow:hidden;
+}
+#project-simmyo .project-info .gallery-image {
+  width:100% !important;
+  height:clamp(105px,10vw,145px) !important;
+  aspect-ratio:auto !important;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:#f1efeb !important;
+}
+#project-simmyo .project-info .gallery-image img {
+  display:block;
+  width:auto !important;
+  height:auto !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  padding:4px !important;
+  object-fit:contain !important;
+  object-position:center !important;
+}
+
+/* Tablet and mobile: no forced photo upscaling, no oversized cat strip. */
+@media(max-width:980px){
+ .fc-stage { grid-template-columns:minmax(0,1fr) !important; gap:22px !important; }
+ .fc-asset {height:clamp(345px,59vw,495px) !important; max-height:495px !important; }
+ .fc-story-content {padding-top:18px !important;}
+ #project-simmyo .project-info .project-gallery {max-width:445px;}
+}
+@media(max-width:760px){
+ .fc-stage{grid-template-columns:minmax(0,1fr) !important;}
+ .fc-asset{height:clamp(275px,82vw,445px) !important;max-height:445px !important;}
+ .fc-story-content h3{font-size:clamp(39px,10vw,62px) !important;}
+ #project-simmyo .project-info .project-gallery{max-width:100%;}
+ #project-simmyo .project-info .gallery-image{height:clamp(92px,28vw,135px) !important;}
+ #project-simmyo .project-info .gallery-row{gap:8px !important;}
+}
+@media(max-width:390px){
+ .fc-asset {height:clamp(245px,83vw,320px) !important;}
+ #project-simmyo .project-info .gallery-image{height:92px !important;}
+}
+/* Once an original photo has loaded, the archival placeholder must not show
+   in the surrounding negative space (especially portrait covers). */
+.fc-asset.is-loaded .fc-asset-placeholder { opacity:0 !important; visibility:hidden !important; }
+.fc-asset.is-broken .fc-asset-placeholder { opacity:1; visibility:visible; }
