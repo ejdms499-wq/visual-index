@@ -72,3 +72,12 @@
 .pslider+.deck{margin-top:30px!important}
 .deck-heading,.deck-gallery,.deck-controls{margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}
 .project-spread .project-heading-overline{margin-bottom:16px!important}
+
+/* ISSUE 19d — photo fills the whole frame (no bars); media block vertically centred against the text column */
+.pslider-frame{background:#151515!important}
+.pslider-zoom img{object-fit:cover!important;object-position:center!important}
+#project-pudding .pslider-frame,#project-stones .pslider-frame{background:#151515!important}
+@media(min-width:981px){
+ .project-spread .project-spread-grid{align-items:center!important}
+ .project-spread .project-media{align-self:center!important}
+}
