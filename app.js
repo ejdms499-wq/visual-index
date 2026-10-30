@@ -251,7 +251,7 @@ const LOCAL_COVERS = {
  'assets/projects/covers/stray_stones_wide.webp':'assets/covers/stray_stones_selected.png'
  
 };
-const LOCAL_DECK = {gyeong:21,simmyo:12,stones:21,music:20,memory:23};
+const LOCAL_DECK = {gyeong:21,simmyo:23,stones:21,music:20,memory:23};
 const metrics = {
  gyeong:[['04','사건 서브페이지'],['03','탐색 방식'],['03','팀 프로젝트']],
  simmyo:[['08','산책 도장'],['02','시선 전환'],['01','오리지널 캐릭터']],
