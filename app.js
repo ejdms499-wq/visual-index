@@ -372,21 +372,51 @@ document.addEventListener('keydown',e=>{
 });
 
 const tools = ts=>`<ul class="tech-pills">${ts.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`;
-const links = ls=>ls.map(([label,url])=>`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} <span>↗</span></a>`).join('');
+const WHY = {
+ gyeong:['1930년대 신문 기록은 원문 그대로는 읽히지 않는다는 점에서 출발했습니다.','신문 지면의 세로 단 조판과 먹색·아이보리 팔레트를 그대로 가져와, 기록을 \'읽는\' 감각을 화면에 옮겼습니다.'],
+ simmyo:['경성야록 심인광고 속 수배 고양이를 주인공으로 세워, 기록을 읽던 시선을 걷는 시선으로 바꿨습니다.','빈티지 신문 삽화의 굵은 선과 바랜 종이 질감을 조형 언어로 삼았습니다.'],
+ pudding:['푸딩의 형태와 디저트의 색에서 출발해, 성격이 다른 다섯 캐릭터를 한 세계로 묶고 싶었습니다.','말랑한 클레이 질감과 파스텔 색으로 캐릭터마다 성격이 구분되도록 설계했습니다.'],
+ wizard:['소설 속 \'효과에는 대가가 따른다\'는 규칙을 실제 상점을 둘러보는 경험으로 확인하고 싶었습니다.','쇼핑몰의 상품 카드·컬렉션 문법을 그대로 차용해, 상품 설명 속에 세계관의 대가 규칙이 읽히도록 했습니다.'],
+ memory:['AI가 기억의 빈칸을 지어내는 문제를 막는 서비스가 필요하다고 판단했습니다.','확실·불확실·모름을 구분해 보여주는 화면 구성으로, 확인된 정보만 이미지가 되는 흐름을 설계했습니다.'],
+ music:['음악을 듣는 일이 한 화면에서 끝나지 않고 역사·가사·영상으로 이어지길 원했습니다.','곡 하나를 중심으로 자료가 펼쳐지는 아카이브형 카드 구성을 택했습니다.'],
+ stones:['운석의 발견 위치에 관측 편향이 반영된다는 점이 흥미로워 분석을 시작했습니다.','숫자와 차트를 캐릭터와 입양소 세계관으로 번역해, 데이터를 이야기로 읽도록 디자인했습니다.'],
+ vinyl:['차트 숫자를 읽는 대신 손으로 레코드를 고르는 경험으로 데이터를 보여주고 싶었습니다.','LP와 턴테이블이라는 익숙한 사물을 인터페이스로 삼아 순위와 지속성을 탐색하게 했습니다.']
+};
+const GITHUB = {
+ gyeong:'https://github.com/ejdms499-wq/gyeongseong-yarok_v',
+ simmyo:'https://github.com/ejdms499-wq/simmyo-walk',
+ wizard:'https://github.com/ejdms499-wq/wizard-bakery',
+ memory:'https://github.com/ejdms499-wq/memory-gyeol',
+ stones:'https://github.com/ejdms499-wq/STRAY_STONES',
+ vinyl:'https://github.com/ejdms499-wq/DATA_VINYL'
+};
+const projectLinks = p=>{
+ const base=(p.links||[]).filter(([l])=>l!=='GITHUB SOURCE');
+ if(GITHUB[p.id]){const i=base.findIndex(([l])=>l==='LIVE WEBSITE');base.splice(i<0?0:i+1,0,['GITHUB SOURCE',GITHUB[p.id]]);}
+ return base;
+};
+const shortUrl = u=>{try{const x=new URL(u,location.href);if(/^https?:$/.test(x.protocol)&&x.host!==location.host)return (x.host+x.pathname).replace(/\/$/,'');}catch(e){}return u.split('/').pop();};
+const links = ls=>ls.map(([label,url])=>`<a class="pl-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer"><b>${esc(label)}</b><em>${esc(shortUrl(url))}</em><span aria-hidden="true">↗</span></a>`).join('');
+const whyBlock = p=>!WHY[p.id]?'':`<div class="why-block"><div class="why-head"><span>WHY THIS PROJECT</span><span>기획 배경 · 디자인</span></div><p><b>WHY</b>${esc(WHY[p.id][0])}</p><p><b>DESIGN</b>${esc(WHY[p.id][1])}</p></div>`;
 const metricsCode=p=>!metrics[p.id]?'':`<div class="project-metrics">${metrics[p.id].map(([num,label])=>`<div><strong>${esc(num)}</strong><span>${esc(label)}</span></div>`).join('')}</div>`;
 const slideSrc = (p,num)=>LOCAL_DECK[p.id] && num<=LOCAL_DECK[p.id]
  ? `assets/decks/${p.id}/s_${String(num).padStart(2,'0')}.webp`
  : `${SOURCE}${p.deck.dir}/s_${String(num).padStart(2,'0')}.jpg`;
 const gallery=p=>p.gallery?.length?`<div class="project-gallery"><div class="tiny-heading"><span>ADDITIONAL VISUALS</span><span>${String(p.gallery.length).padStart(2,'0')} ORIGINAL FRAMES</span></div><div class="gallery-row">${p.gallery.map((im,i)=>`<a href="${esc(asset(im))}" target="_blank" rel="noopener noreferrer">${image(im,`${p.title} 작업 이미지 ${i+1}`,'gallery-image',LOCAL_COVERS[im]||'')}</a>`).join('')}</div></div>`:'';
-const deck=p=>!p.deck?'':`<div class="deck" data-id="${esc(p.id)}" data-dir="${esc(p.deck.dir)}" data-max="${p.deck.count}" data-current="1">
-  <div class="deck-heading"><span class="deck-title">${'PRESENTATION / ORIGINAL SLIDES'}</span><span class="deck-count">${String(p.deck.count).padStart(2,'0')} PAGES</span><button type="button" class="deck-open-button" data-open-deck="1" aria-label="${esc(p.title)} 발표자료 첫 번째 슬라이드 크게 보기">슬라이드 크게 보기 <span aria-hidden="true">↗</span></button></div>
-  <div class="deck-gallery">
-   <div class="deck-track" tabindex="0" aria-label="${esc(p.title)} PPT 슬라이드 목록">
-    ${Array.from({length:p.deck.count},(_,i)=>`<button class="deck-thumb" type="button" data-slide="${i+1}" aria-label="${esc(p.title)} 슬라이드 ${i+1} 확대"><img src="${slideSrc(p,i+1)}" alt="${esc(p.title)} 기획서 ${i+1}페이지" loading="lazy"><span>${String(i+1).padStart(2,'0')}</span></button>`).join('')}
-   </div>
-   <div class="deck-controls"><span>SLIDE ARCHIVE <i aria-hidden="true">/</i> 썸네일을 누르면 확대됩니다</span><div class="deck-scroll-nav"><button type="button" data-slide-scroll="-1" aria-label="이전 슬라이드 목록">←</button><button type="button" data-slide-scroll="1" aria-label="다음 슬라이드 목록">→</button></div></div>
-  </div>
+const frames = p=>{
+ const out=[];
+ if(p.cover)out.push({src:LOCAL_COVERS[p.cover]||asset(p.cover),label:'ORIGINAL PROJECT THUMBNAIL'});
+ if(p.deck)for(let i=1;i<=p.deck.count;i++)out.push({src:slideSrc(p,i),label:`PRESENTATION / SLIDE ${String(i).padStart(2,'0')}`});
+ return out;
+};
+const slider = (p,n)=>{
+ const f=frames(p);if(!f.length)return '';
+ return `<div class="pslider" data-id="${esc(p.id)}" data-max="${f.length}" aria-label="${esc(p.title)} 이미지·발표자료 슬라이더">
+  <div class="pslider-frame"><button type="button" class="pslider-zoom" data-pzoom aria-label="${esc(p.title)} 현재 이미지 크게 보기"><img alt="${esc(p.title)}" decoding="async"><span class="pslider-cta" aria-hidden="true">크게 보기 ↗</span></button></div>
+  <div class="pslider-footer"><span class="pslider-fig">FIG ${String(n).padStart(2,'0')} — ${esc(f[0].label)}</span><span class="pslider-count"></span></div>
+  <div class="pslider-bar"><button type="button" data-pstep="-1" aria-label="이전 이미지">← <small>PREV</small></button><div class="pslider-ruler" role="tablist" aria-label="${esc(p.title)} 이미지 선택">${f.map((_,i)=>`<button type="button" data-pgo="${i}" aria-label="${i+1}번째 이미지">${String(i+1).padStart(2,'0')}</button>`).join('')}</div><button type="button" data-pstep="1" aria-label="다음 이미지"><small>NEXT</small> →</button></div>
  </div>`;
+};
 const digital=projects.filter(p=>p.id!=='fashion');
 document.getElementById('projectSections').innerHTML=digital.map((p,i)=>{
  if(p.id==='method')return `<section class="method-spread" id="project-method" aria-labelledby="title-method">
@@ -401,14 +431,14 @@ document.getElementById('projectSections').innerHTML=digital.map((p,i)=>{
    <div class="project-info">
     <header class="project-heading"><div><div class="project-heading-overline"><span class="project-brow">${esc(p.category)} / CASE STUDY</span><span class="project-mini-folio">${String(i+2).padStart(2,'0')} / ${String(projects.length).padStart(2,'0')}</span></div><h2 id="title-${esc(p.id)}">${esc(p.title)}</h2><p>${esc(p.lead)}</p></div></header>
     <p class="project-description">${esc(p.description)}</p>
+    ${whyBlock(p)}
     ${metricsCode(p)}
     <dl><div><dt>MY ROLE</dt><dd>${esc(p.role)}</dd></div><div><dt>CONTEXT</dt><dd>${esc(p.overline)}</dd></div><div><dt>TOOLS</dt><dd>${tools(p.tools)}</dd></div></dl>
-    ${p.links.length?`<div class="project-links">${links(p.links)}</div>`:''}
+    ${projectLinks(p).length?`<div class="project-links">${links(projectLinks(p))}</div>`:''}
     ${p.id==='simmyo'?gallery(p):''}
    </div>
    <div class="project-media">
-    <figure class="project-image">${image(p.cover,p.title+' 기존 대표 이미지','project-image-asset',LOCAL_COVERS[p.cover]||'')}<figcaption><span>FIG ${String(i+1).padStart(2,'0')} — ORIGINAL PROJECT THUMBNAIL</span><span>${esc(p.categoryEn)}</span></figcaption></figure>
-    ${deck(p)}
+    ${slider(p,i+1)}
    </div>
  </div>
  ${p.id==='simmyo'?'':gallery(p)}
@@ -429,19 +459,47 @@ function loadImages(){document.querySelectorAll('img[data-source]').forEach(im=>
 });}
 loadImages();
 const lightbox=document.getElementById('lightbox'),lightPhoto=document.getElementById('lightPhoto'),lightCaption=document.getElementById('lightCaption');
-let currentDeck=null,currentSlide=1,previousFocus=null;
-function openSlide(deck,index){currentDeck=deck;currentSlide=index;previousFocus=document.activeElement;showSlide();lightbox.hidden=false;document.body.classList.add('modal-open');document.getElementById('closeBox').focus();}
-function showSlide(){if(!currentDeck)return;let max=Number(currentDeck.dataset.max);currentSlide=((currentSlide-1+max)%max)+1;let p=sourceProjects.find(x=>x.id===currentDeck.dataset.id);lightPhoto.src=slideSrc(p,currentSlide);lightPhoto.alt=`${p.title} PPT ${currentSlide}번째 슬라이드`;lightCaption.textContent=`${p.title} — ${String(currentSlide).padStart(2,'0')} / ${String(max).padStart(2,'0')}`;currentDeck.querySelectorAll('.deck-thumb').forEach(b=>b.classList.toggle('active',Number(b.dataset.slide)===currentSlide));}
-function closeSlide(){lightbox.hidden=true;document.body.classList.remove('modal-open');lightPhoto.removeAttribute('src');currentDeck=null;previousFocus?.focus?.();}
+let lbFrames=[],lbIndex=0,lbTitle='',previousFocus=null;
+function lbShow(){const max=lbFrames.length;lbIndex=((lbIndex%max)+max)%max;lightPhoto.src=lbFrames[lbIndex].src;lightPhoto.alt=`${lbTitle} ${lbIndex+1}번째 이미지`;lightCaption.textContent=`${lbTitle} — ${String(lbIndex+1).padStart(2,'0')} / ${String(max).padStart(2,'0')}`;}
+function openSlide(project,index){lbFrames=frames(project);lbTitle=project.title;lbIndex=index;previousFocus=document.activeElement;lbShow();lightbox.hidden=false;document.body.classList.add('modal-open');document.getElementById('closeBox').focus();}
+function closeSlide(){lightbox.hidden=true;document.body.classList.remove('modal-open');lightPhoto.removeAttribute('src');lbFrames=[];previousFocus?.focus?.();}
+const sliderState={};
+function sliderShow(el,index){
+ const p=sourceProjects.find(x=>x.id===el.dataset.id),f=frames(p),max=f.length;
+ index=((index%max)+max)%max;sliderState[p.id]=index;
+ const img=el.querySelector('.pslider-frame img');
+ const frame=el.querySelector('.pslider-frame');
+ frame.classList.remove('is-broken');
+ img.onerror=()=>frame.classList.add('is-broken');
+ img.onload=()=>{frame.dataset.orientation=img.naturalWidth>=img.naturalHeight?'landscape':'portrait';};
+ img.src=f[index].src;
+ el.querySelector('.pslider-fig').textContent=`FIG ${el.querySelector('.pslider-fig').textContent.match(/FIG (\d+)/)[1]} — ${f[index].label}`;
+ el.querySelector('.pslider-count').textContent=`${String(index+1).padStart(2,'0')} / ${String(max).padStart(2,'0')}`;
+ const marks=[...el.querySelectorAll('[data-pgo]')];
+ marks.forEach((m,i)=>{m.classList.toggle('is-active',i===index);m.setAttribute('aria-selected',String(i===index));});
+ const ruler=el.querySelector('.pslider-ruler'),cur=marks[index];
+ if(cur&&ruler.scrollWidth>ruler.clientWidth)ruler.scrollTo({left:cur.offsetLeft-ruler.clientWidth/2+cur.offsetWidth/2,behavior:'smooth'});
+ el.querySelectorAll('[data-pstep]').forEach(b=>b.hidden=max<2);
+ el.querySelector('.pslider-ruler').hidden=max<2;
+}
+document.querySelectorAll('.pslider').forEach(el=>{
+ sliderShow(el,0);
+ let x0=null;
+ const fr=el.querySelector('.pslider-frame');
+ fr.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;},{passive:true});
+ fr.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>40)sliderShow(el,(sliderState[el.dataset.id]||0)+(dx<0?1:-1));});
+ el.tabIndex=0;
+ el.addEventListener('keydown',e=>{if(e.target!==el)return;if(e.key==='ArrowLeft'){e.preventDefault();sliderShow(el,(sliderState[el.dataset.id]||0)-1);}if(e.key==='ArrowRight'){e.preventDefault();sliderShow(el,(sliderState[el.dataset.id]||0)+1);}});
+});
 document.addEventListener('click',e=>{
- const open=e.target.closest('[data-open-deck]');if(open){openSlide(open.closest('.deck'),Number(open.dataset.openDeck)||1);return;}
- const thumb=e.target.closest('.deck-thumb');if(thumb){openSlide(thumb.closest('.deck'),Number(thumb.dataset.slide));return;}
- const scroll=e.target.closest('[data-slide-scroll]');if(scroll){const deck=scroll.closest('.deck');const track=deck.querySelector('.deck-track');track.scrollBy({left:track.clientWidth*.72*Number(scroll.dataset.slideScroll),behavior:'smooth'});return;}
+ const step=e.target.closest('[data-pstep]');if(step){const el=step.closest('.pslider');sliderShow(el,(sliderState[el.dataset.id]||0)+Number(step.dataset.pstep));return;}
+ const go=e.target.closest('[data-pgo]');if(go){sliderShow(go.closest('.pslider'),Number(go.dataset.pgo));return;}
+ const zoom=e.target.closest('[data-pzoom]');if(zoom){const el=zoom.closest('.pslider');openSlide(sourceProjects.find(x=>x.id===el.dataset.id),sliderState[el.dataset.id]||0);return;}
  const link=e.target.closest('.side-link');if(link){document.querySelector('.side').classList.remove('open');document.getElementById('menuToggle').setAttribute('aria-expanded','false');}
 });
 document.getElementById('closeBox').onclick=closeSlide;
-document.getElementById('boxPrev').onclick=()=>{if(currentDeck){currentSlide--;showSlide();}};
-document.getElementById('boxNext').onclick=()=>{if(currentDeck){currentSlide++;showSlide();}};
+document.getElementById('boxPrev').onclick=()=>{if(lbFrames.length){lbIndex--;lbShow();}};
+document.getElementById('boxNext').onclick=()=>{if(lbFrames.length){lbIndex++;lbShow();}};
 lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeSlide();});
 document.addEventListener('keydown',e=>{if(lightbox.hidden)return;if(e.key==='Escape')closeSlide();if(e.key==='ArrowLeft')document.getElementById('boxPrev').click();if(e.key==='ArrowRight')document.getElementById('boxNext').click();});
 const menu=document.getElementById('menuToggle');menu.onclick=()=>{const open=document.querySelector('.side').classList.toggle('open');menu.setAttribute('aria-expanded',String(open));};
