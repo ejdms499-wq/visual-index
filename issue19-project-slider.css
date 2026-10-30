@@ -54,3 +54,21 @@
 .pslider-others-row button:hover,.pslider-others-row button:focus-visible{outline-color:#111}
 .pslider-others-row img{width:100%;height:100%;object-fit:cover;display:block}
 .pslider+.deck{margin-top:34px}
+
+/* ISSUE 19c — original photo box (16:9, no extra bars) and squared-off alignment */
+.pslider-frame{aspect-ratio:16/9!important;background:#151515!important;border:0!important}
+.pslider-zoom img{object-fit:contain!important;background:transparent!important}
+#project-stones .pslider-frame{background:#0b0b0b!important}
+#project-pudding .pslider-frame{background:#f6f0e9!important}
+#project-simmyo .pslider-frame,#project-gyeong .pslider-frame,#project-memory .pslider-frame,#project-music .pslider-frame,#project-wizard .pslider-frame,#project-vinyl .pslider-frame{background:#151515!important}
+.project-spread .project-spread-grid{align-items:start!important}
+.project-spread .project-media{align-self:start!important;display:block!important;margin:0!important;padding:0!important}
+.project-spread .project-info{align-self:start!important;margin:0!important;padding-top:0!important}
+.project-spread .project-heading{padding-top:0!important;margin-top:0!important}
+.project-spread .project-heading-overline{margin:0!important;padding:0!important;line-height:1!important}
+.pslider,.pslider-frame,.pslider-footer,.pslider-bar,.deck{width:100%;box-sizing:border-box;margin-left:0!important;margin-right:0!important}
+.pslider-footer{padding:11px 0 12px!important;border-bottom:1px solid #111}
+.pslider-bar{margin-top:0!important;border-top:0!important;padding-top:12px}
+.pslider+.deck{margin-top:30px!important}
+.deck-heading,.deck-gallery,.deck-controls{margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}
+.project-spread .project-heading-overline{margin-bottom:16px!important}
