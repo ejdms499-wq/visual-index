@@ -407,6 +407,7 @@ const frames = p=>{
  const out=[];
  if(p.cover)out.push({src:LOCAL_COVERS[p.cover]||asset(p.cover),label:'ORIGINAL PROJECT THUMBNAIL'});
  (p.gallery||[]).forEach((g,i)=>out.push({src:LOCAL_COVERS[g]||asset(g),label:`ADDITIONAL VISUAL ${String(i+1).padStart(2,'0')}`}));
+ if(p.deck)for(let i=1;i<=p.deck.count;i++)out.push({src:slideSrc(p,i),label:`PRESENTATION / SLIDE ${String(i).padStart(2,'0')}`,slide:i});
  return out;
 };
 const deckFrames = p=>p.deck?Array.from({length:p.deck.count},(_,i)=>({src:slideSrc(p,i+1)})):[];
@@ -422,9 +423,9 @@ const deck=p=>!p.deck?'':`<div class="deck" data-id="${esc(p.id)}" data-dir="${e
 const slider = (p,n)=>{
  const f=frames(p);if(!f.length)return '';
  return `<div class="pslider" data-id="${esc(p.id)}" data-max="${f.length}" aria-label="${esc(p.title)} 이미지·발표자료 슬라이더">
-  <div class="pslider-frame"><button type="button" class="pslider-zoom" data-pzoom aria-label="${esc(p.title)} 현재 이미지 크게 보기"><img alt="${esc(p.title)}" decoding="async"><span class="pslider-cta" aria-hidden="true">크게 보기 ↗</span></button></div>
+  <div class="pslider-frame"><button type="button" class="pslider-zoom" data-pzoom aria-label="${esc(p.title)} 현재 이미지 크게 보기"><img alt="${esc(p.title)}" decoding="async"><span class="pslider-cta" aria-hidden="true">크게 보기 ↗</span></button><button type="button" class="pslider-side pslider-side-prev" data-pstep="-1" aria-label="이전 이미지">←</button><button type="button" class="pslider-side pslider-side-next" data-pstep="1" aria-label="다음 이미지">→</button></div>
   <div class="pslider-footer"><span class="pslider-fig">FIG ${String(n).padStart(2,'0')} — ${esc(f[0].label)}</span><span class="pslider-count"></span></div>
-  ${f.length>1?`<div class="pslider-others"><div class="pslider-others-head"><span>OTHER FRAMES</span><span>${String(f.length-1).padStart(2,'0')} CUTS</span></div><div class="pslider-others-row">${f.slice(1).map((x,i)=>`<button type="button" data-pgo="${i+1}" aria-label="${esc(p.title)} 다른 이미지 ${i+2}"><img src="${esc(x.src)}" alt="" loading="lazy"></button>`).join('')}</div></div>`:''}
+  ${f.filter(x=>!x.slide).length>1?`<div class="pslider-others"><div class="pslider-others-head"><span>OTHER FRAMES</span><span>${String(f.filter(x=>!x.slide).length-1).padStart(2,'0')} CUTS</span></div><div class="pslider-others-row">${f.map((x,i)=>({x,i})).filter(o=>!o.x.slide&&o.i>0).map(o=>`<button type="button" data-pgo="${o.i}" aria-label="${esc(p.title)} 다른 이미지 ${o.i+1}"><img src="${esc(o.x.src)}" alt="" loading="lazy"></button>`).join('')}</div></div>`:''}
   <div class="pslider-bar"><button type="button" data-pstep="-1" aria-label="이전 이미지">← <small>PREV</small></button><div class="pslider-ruler" role="tablist" aria-label="${esc(p.title)} 이미지 선택">${f.map((_,i)=>`<button type="button" data-pgo="${i}" aria-label="${i+1}번째 이미지">${String(i+1).padStart(2,'0')}</button>`).join('')}</div><button type="button" data-pstep="1" aria-label="다음 이미지"><small>NEXT</small> →</button></div>
  </div>`;
 };
@@ -491,6 +492,7 @@ function sliderShow(el,index){
  const ruler=el.querySelector('.pslider-ruler'),cur=marks[index];
  if(cur&&ruler.scrollWidth>ruler.clientWidth)ruler.scrollTo({left:cur.offsetLeft-ruler.clientWidth/2+cur.offsetWidth/2,behavior:'smooth'});
  el.querySelectorAll('[data-pstep]').forEach(b=>b.hidden=max<2);
+ const dk=el.parentElement.querySelector('.deck');if(dk){dk.querySelectorAll('.deck-thumb').forEach(t=>t.classList.toggle('active',f[index].slide===Number(t.dataset.slide)));const act=dk.querySelector('.deck-thumb.active'),tr=dk.querySelector('.deck-track');if(act&&tr)tr.scrollTo({left:act.offsetLeft-tr.clientWidth/2+act.offsetWidth/2,behavior:'smooth'});}
  el.querySelector('.pslider-ruler').hidden=max<2;
 }
 document.querySelectorAll('.pslider').forEach(el=>{

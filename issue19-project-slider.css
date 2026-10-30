@@ -81,3 +81,13 @@
  .project-spread .project-spread-grid{align-items:center!important}
  .project-spread .project-media{align-self:center!important}
 }
+
+/* ISSUE 19f — side arrows on the photo, slides reachable from the main slider, tighter + centred two-column spread */
+.pslider-frame .pslider-side{all:unset;position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.92);color:#111;border:1px solid #111;font:700 18px/1 var(--mono,monospace);cursor:pointer;transition:.15s}
+.pslider-frame .pslider-side-prev{left:12px}.pslider-frame .pslider-side-next{right:12px;left:auto}
+.pslider-frame .pslider-side:hover,.pslider-frame .pslider-side:focus-visible{background:#111;color:#fff}
+.pslider-frame .pslider-side[hidden]{display:none}
+.deck-thumb.active{outline:2px solid #111;outline-offset:-2px}
+@media(min-width:981px){
+ .project-spread .project-spread-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)!important;column-gap:clamp(28px,3.2vw,60px)!important;width:100%;margin-left:auto;margin-right:auto}
+}
