@@ -98,3 +98,9 @@
 .pslider-frame .pslider-side:hover,.pslider-frame .pslider-side:focus-visible{background:#111;color:#fff}
 .pslider-frame .pslider-side-prev{left:6px}.pslider-frame .pslider-side-next{right:6px}
 @media(hover:none){.pslider-frame .pslider-side{opacity:.7;pointer-events:auto}}
+
+/* ISSUE 19h — two equal columns so the gutter sits exactly on the page's centre line */
+@media(min-width:981px){
+ .project-spread .project-spread-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;column-gap:clamp(40px,4vw,72px)!important}
+ .project-spread .project-info,.project-spread .project-media{width:100%!important;max-width:none!important;justify-self:stretch!important}
+}
