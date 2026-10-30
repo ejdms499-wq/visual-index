@@ -45,3 +45,12 @@
  .project-spread .project-links .pl-link{grid-template-columns:104px minmax(0,1fr) auto}
  .why-block p{grid-template-columns:1fr;gap:0}
 }
+
+/* OTHER FRAMES strip (credits style) */
+.pslider-others{margin-top:14px}
+.pslider-others-head{display:flex;justify-content:space-between;font:700 9px/1.4 var(--mono,monospace);letter-spacing:.16em;color:#6c6a63;margin-bottom:8px}
+.pslider-others-row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin}
+.pslider-others-row button{all:unset;cursor:pointer;flex:0 0 auto;width:84px;height:62px;overflow:hidden;background:#e9e6df;outline:1px solid transparent}
+.pslider-others-row button:hover,.pslider-others-row button:focus-visible{outline-color:#111}
+.pslider-others-row img{width:100%;height:100%;object-fit:cover;display:block}
+.pslider+.deck{margin-top:34px}

@@ -406,14 +406,25 @@ const gallery=p=>p.gallery?.length?`<div class="project-gallery"><div class="tin
 const frames = p=>{
  const out=[];
  if(p.cover)out.push({src:LOCAL_COVERS[p.cover]||asset(p.cover),label:'ORIGINAL PROJECT THUMBNAIL'});
- if(p.deck)for(let i=1;i<=p.deck.count;i++)out.push({src:slideSrc(p,i),label:`PRESENTATION / SLIDE ${String(i).padStart(2,'0')}`});
+ (p.gallery||[]).forEach((g,i)=>out.push({src:LOCAL_COVERS[g]||asset(g),label:`ADDITIONAL VISUAL ${String(i+1).padStart(2,'0')}`}));
  return out;
 };
+const deckFrames = p=>p.deck?Array.from({length:p.deck.count},(_,i)=>({src:slideSrc(p,i+1)})):[];
+const deck=p=>!p.deck?'':`<div class="deck" data-id="${esc(p.id)}" data-dir="${esc(p.deck.dir)}" data-max="${p.deck.count}" data-current="1">
+  <div class="deck-heading"><span class="deck-title">PRESENTATION / ORIGINAL SLIDES</span><span class="deck-count">${String(p.deck.count).padStart(2,'0')} PAGES</span><button type="button" class="deck-open-button" data-open-deck="1" aria-label="${esc(p.title)} 발표자료 첫 번째 슬라이드 크게 보기">슬라이드 크게 보기 <span aria-hidden="true">↗</span></button></div>
+  <div class="deck-gallery">
+   <div class="deck-track" tabindex="0" aria-label="${esc(p.title)} PPT 슬라이드 목록">
+    ${Array.from({length:p.deck.count},(_,i)=>`<button class="deck-thumb" type="button" data-slide="${i+1}" aria-label="${esc(p.title)} 슬라이드 ${i+1} 확대"><img src="${slideSrc(p,i+1)}" alt="${esc(p.title)} 기획서 ${i+1}페이지" loading="lazy"><span>${String(i+1).padStart(2,'0')}</span></button>`).join('')}
+   </div>
+   <div class="deck-controls"><span>SLIDE ARCHIVE <i aria-hidden="true">/</i> 썸네일을 누르면 확대됩니다</span><div class="deck-scroll-nav"><button type="button" data-slide-scroll="-1" aria-label="이전 슬라이드 목록">←</button><button type="button" data-slide-scroll="1" aria-label="다음 슬라이드 목록">→</button></div></div>
+  </div>
+ </div>`;
 const slider = (p,n)=>{
  const f=frames(p);if(!f.length)return '';
  return `<div class="pslider" data-id="${esc(p.id)}" data-max="${f.length}" aria-label="${esc(p.title)} 이미지·발표자료 슬라이더">
   <div class="pslider-frame"><button type="button" class="pslider-zoom" data-pzoom aria-label="${esc(p.title)} 현재 이미지 크게 보기"><img alt="${esc(p.title)}" decoding="async"><span class="pslider-cta" aria-hidden="true">크게 보기 ↗</span></button></div>
   <div class="pslider-footer"><span class="pslider-fig">FIG ${String(n).padStart(2,'0')} — ${esc(f[0].label)}</span><span class="pslider-count"></span></div>
+  ${f.length>1?`<div class="pslider-others"><div class="pslider-others-head"><span>OTHER FRAMES</span><span>${String(f.length-1).padStart(2,'0')} CUTS</span></div><div class="pslider-others-row">${f.slice(1).map((x,i)=>`<button type="button" data-pgo="${i+1}" aria-label="${esc(p.title)} 다른 이미지 ${i+2}"><img src="${esc(x.src)}" alt="" loading="lazy"></button>`).join('')}</div></div>`:''}
   <div class="pslider-bar"><button type="button" data-pstep="-1" aria-label="이전 이미지">← <small>PREV</small></button><div class="pslider-ruler" role="tablist" aria-label="${esc(p.title)} 이미지 선택">${f.map((_,i)=>`<button type="button" data-pgo="${i}" aria-label="${i+1}번째 이미지">${String(i+1).padStart(2,'0')}</button>`).join('')}</div><button type="button" data-pstep="1" aria-label="다음 이미지"><small>NEXT</small> →</button></div>
  </div>`;
 };
@@ -435,13 +446,13 @@ document.getElementById('projectSections').innerHTML=digital.map((p,i)=>{
     ${metricsCode(p)}
     <dl><div><dt>MY ROLE</dt><dd>${esc(p.role)}</dd></div><div><dt>CONTEXT</dt><dd>${esc(p.overline)}</dd></div><div><dt>TOOLS</dt><dd>${tools(p.tools)}</dd></div></dl>
     ${projectLinks(p).length?`<div class="project-links">${links(projectLinks(p))}</div>`:''}
-    ${p.id==='simmyo'?gallery(p):''}
+    
    </div>
    <div class="project-media">
     ${slider(p,i+1)}
+    ${deck(p)}
    </div>
  </div>
- ${p.id==='simmyo'?'':gallery(p)}
  <div class="project-end"><span>END / ${String(i+2).padStart(2,'0')}</span><a href="#contents">BACK TO INDEX ↑</a>${digital[i+1]?`<a class="next-story" href="#project-${esc(digital[i+1].id)}">NEXT STORY →</a>`:`<a class="next-story" href="#about">NEXT / ABOUT →</a>`}</div>
  </section>`;}).join('');
 // Images use the user's original hosted assets. A supplied screenshot crop is a local fallback where available.
@@ -461,7 +472,7 @@ loadImages();
 const lightbox=document.getElementById('lightbox'),lightPhoto=document.getElementById('lightPhoto'),lightCaption=document.getElementById('lightCaption');
 let lbFrames=[],lbIndex=0,lbTitle='',previousFocus=null;
 function lbShow(){const max=lbFrames.length;lbIndex=((lbIndex%max)+max)%max;lightPhoto.src=lbFrames[lbIndex].src;lightPhoto.alt=`${lbTitle} ${lbIndex+1}번째 이미지`;lightCaption.textContent=`${lbTitle} — ${String(lbIndex+1).padStart(2,'0')} / ${String(max).padStart(2,'0')}`;}
-function openSlide(project,index){lbFrames=frames(project);lbTitle=project.title;lbIndex=index;previousFocus=document.activeElement;lbShow();lightbox.hidden=false;document.body.classList.add('modal-open');document.getElementById('closeBox').focus();}
+function openFrames(list,title,index){lbFrames=list;lbTitle=title;lbIndex=index;previousFocus=document.activeElement;lbShow();lightbox.hidden=false;document.body.classList.add('modal-open');document.getElementById('closeBox').focus();}
 function closeSlide(){lightbox.hidden=true;document.body.classList.remove('modal-open');lightPhoto.removeAttribute('src');lbFrames=[];previousFocus?.focus?.();}
 const sliderState={};
 function sliderShow(el,index){
@@ -494,7 +505,10 @@ document.querySelectorAll('.pslider').forEach(el=>{
 document.addEventListener('click',e=>{
  const step=e.target.closest('[data-pstep]');if(step){const el=step.closest('.pslider');sliderShow(el,(sliderState[el.dataset.id]||0)+Number(step.dataset.pstep));return;}
  const go=e.target.closest('[data-pgo]');if(go){sliderShow(go.closest('.pslider'),Number(go.dataset.pgo));return;}
- const zoom=e.target.closest('[data-pzoom]');if(zoom){const el=zoom.closest('.pslider');openSlide(sourceProjects.find(x=>x.id===el.dataset.id),sliderState[el.dataset.id]||0);return;}
+ const zoom=e.target.closest('[data-pzoom]');if(zoom){const el=zoom.closest('.pslider');const pr=sourceProjects.find(x=>x.id===el.dataset.id);openFrames(frames(pr),pr.title,sliderState[el.dataset.id]||0);return;}
+ const dOpen=e.target.closest('[data-open-deck]');if(dOpen){const pr=sourceProjects.find(x=>x.id===dOpen.closest('.deck').dataset.id);openFrames(deckFrames(pr),pr.title+' · PPT',0);return;}
+ const dThumb=e.target.closest('.deck-thumb');if(dThumb){const pr=sourceProjects.find(x=>x.id===dThumb.closest('.deck').dataset.id);openFrames(deckFrames(pr),pr.title+' · PPT',Number(dThumb.dataset.slide)-1);return;}
+ const dScroll=e.target.closest('[data-slide-scroll]');if(dScroll){const track=dScroll.closest('.deck').querySelector('.deck-track');track.scrollBy({left:track.clientWidth*.72*Number(dScroll.dataset.slideScroll),behavior:'smooth'});return;}
  const link=e.target.closest('.side-link');if(link){document.querySelector('.side').classList.remove('open');document.getElementById('menuToggle').setAttribute('aria-expanded','false');}
 });
 document.getElementById('closeBox').onclick=closeSlide;
