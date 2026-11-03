@@ -9,6 +9,7 @@ const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt
     {id:'simmyo',title:'심묘한 산책',overline:'ILLUSTRATION / INTERACTIVE WALK',category:'역사 · 세계관',categoryEn:'HISTORY & CULTURE',year:'2026',cover:'assets/projects/covers/simmyo_cover_web.jpg',lead:'검은 고양이 한 마리가 지나간 자리.',description:'1930년대 경성을 길고양이 심묘의 시선으로 여행하는 인터랙티브 산책입니다. 당시 공간과 문화를 조사하고, 빈티지 신문 삽화의 조형 언어를 담아 장소마다 새로운 풍경을 구성했습니다.',role:'캐릭터 설정 · 비주얼 디렉션 · 역사 리서치',tools:['Illustration','Character IP','HTML','CSS','JavaScript','Midjourney'],deck:{dir:'assets/decks/simmyo',count:23},links:[['LIVE WEBSITE','https://ejdms499-wq.github.io/simmyo-walk/'],['PROJECT NOTES','https://app.notion.com/p/SIMMYO-WALK-40592c0c25098165adb1d0f1ed83a163']]},
     {id:'pudding',title:'푸딩베리',overline:'ORIGINAL CHARACTER IP / STORY',category:'캐릭터 IP',categoryEn:'CHARACTER & WORLD',year:'2026',cover:'assets/projects/covers/puddingberry.png',lead:'말랑한 다섯 친구의 달콤한 세계.',description:'푸딩의 형태와 디저트의 색에서 출발해 다섯 가지 성격을 가진 캐릭터를 기획했습니다. 각 캐릭터의 소품, 색채, 말투, 관계성을 하나의 브랜드 IP로 연결하는 프로젝트입니다.',role:'오리지널 IP 기획 · 캐릭터 디자인 · 세계관',tools:['Midjourney','Character Design','3D Clay Look','Notion'],links:[['PROJECT NOTES','https://app.notion.com/p/38e92c0c2509801587b0fbc171ec189f'],['VIDEO ARCHIVE','https://www.youtube.com/@BerryPudding_TV/playlists']]},
     {id:'wizard',title:'WIZARD BAKERY',overline:'WEB EXPERIENCE / FICTIONAL COMMERCE',category:'캐릭터 IP',categoryEn:'CHARACTER & WORLD',year:'2026',cover:'assets/projects/covers/wizard_bakery_wide.webp',lead:'효과에는 반드시 대가가 따릅니다.',description:'소설 「위저드 베이커리」를 모티프로 한 비공식 팬 프로젝트입니다. 문학 속 규칙을 39개의 상품과 다섯 컬렉션으로 해석해, 실제 상점을 탐색하는 듯한 인터랙티브 웹 경험을 제작했습니다.',role:'세계관 기획 · UX/UI · 프론트엔드 · AI 비주얼',tools:['React','HashRouter','JSON','Midjourney','GitHub Pages'],deck:{dir:'assets/decks/wizard',count:18},links:[['LIVE WEBSITE','https://ejdms499-wq.github.io/wizard-bakery/'],['PROJECT NOTES','https://app.notion.com/p/WIZARD-BAKERY-3d592c0c250981c48c5fc89fb13109d9']]},
+    {id:'fete',title:'FÊTE',overline:'INTERACTIVE STORY / FESTIVAL',category:'AI 서비스 기획',categoryEn:'AI & DIGITAL',year:'2026',cover:'assets/covers/fete.webp',lead:'세계의 축제로 5분 여행.',description:'실제 축제의 의식을 손끝으로 따라 하는 인터랙티브 스토리 웹입니다. 현지 친구의 안내를 따라 이펭·라 토마티나·송끄란·홀리·버닝맨·죽은 자의 날을 다녀오고, 마지막엔 내가 쓴 글씨가 인쇄된 빈티지 축제 포스터를 저장합니다.',role:'기획 · 비주얼 디렉션 · AI 콘텐츠 제작 · 프런트엔드',tools:['Midjourney','Midjourney Animate','Gemini','ffmpeg','OpenCV','HTML/CSS/JS'],deck:{dir:'assets/decks/fete',count:15},links:[['PPT 원본','FETE.pptx'],['LIVE WEBSITE','https://ejdms499-wq.github.io/fete/'],['PROJECT NOTES','https://app.notion.com/p/40d92c0c25098183a47fd9c1c75eb3b8']]},
     {id:'memory',title:'기억결',overline:'AI SERVICE / MEMORY DESIGN',category:'AI 서비스 기획',categoryEn:'AI & DIGITAL',year:'2026',cover:'assets/projects/covers/memory_gyeol.png',lead:'AI가 기억의 빈칸을 지어내지 않도록.',description:'사용자의 기억을 보존하는 데서 출발하는 AI 경험 서비스입니다. 기억의 확실성과 불확실성을 구분하고, 질문·이미지 생성·검증 단계를 거쳐 조심스럽게 재구성하는 흐름을 설계했습니다.',role:'서비스 기획 · AI 자동화 · 인터랙션 디자인',tools:['n8n','OpenAI API','Supabase','Lovable','RLS'],deck:{dir:'assets/decks/memory',count:23},links:[['PPT 원본','기억결.pptx'],['LIVE WEBSITE','https://ejdms499-wq.github.io/memory-gyeol/'],['PROJECT NOTES','https://app.notion.com/p/MEMORY-GYEOL-40592c0c250981bfa33cd273d195a9ab']]},
     {id:'music',title:'MUSIC WORLD',overline:'MUSIC / INTERACTIVE CONTENT',category:'AI 서비스 기획',categoryEn:'AI & DIGITAL',year:'2026',cover:'assets/projects/covers/music_world.png',lead:'음악을 발견하는 또 하나의 화면.',description:'음악·라이브·영상의 맥락을 연결해 경험하는 웹 MVP입니다. 듣는 행위가 하나의 화면에서 끝나지 않도록 큐레이션과 감상 동선을 구성했습니다.',role:'경험 기획 · 콘텐츠 큐레이션 · MVP 제작',tools:['HTML','CSS','JavaScript','n8n','AI Content'],deck:{dir:'assets/decks/music',count:20},links:[['LIVE WEBSITE','https://ubiquitous-crepe-83c45d.netlify.app/'],['PPT 원본','MUSIC_WORLD.pptx'],['PROJECT NOTES','https://app.notion.com/p/MUSIC-WORLD-MUSIC-WORLD-AI-MUSIC-CONTEXT-ENGINE-40592c0c250981c291f2c79dc17872ed']]},
     {id:'stones',title:'STRAY STONES',overline:'DATA / CHARACTER STORYTELLING',category:'데이터 스토리텔링',categoryEn:'DATA & EXPERIMENT',year:'2026',cover:'assets/projects/covers/stray_stones_wide.webp',lead:'운석 데이터가 작은 입양소가 되기까지.',description:'NASA 운석 데이터 45,716건을 살펴보며 기록된 위치에 관측·발견의 편향이 반영된다는 점에 주목했습니다. 분석 결과를 캐릭터와 탐험의 세계관으로 전환한 데이터 스토리텔링 프로젝트입니다.',role:'데이터 분석 · 캐릭터 콘셉트 · UI 설계',tools:['Python','pandas','NASA Open Data','Data Visualization','3D'],deck:{dir:'assets/decks/stones',count:21},links:[['PDF 원본 보기','assets/decks/stones/STRAY_STONES_ORIGINAL.pdf'],['LIVE WEBSITE','https://ejdms499-wq.github.io/STRAY_STONES/'],['PROJECT NOTES','https://app.notion.com/p/STRAY-STONES-40592c0c2509817f977befdea563fb1c']]},
@@ -251,11 +252,12 @@ const LOCAL_COVERS = {
  'assets/projects/covers/stray_stones_wide.webp':'assets/covers/stray_stones_selected.png'
  
 };
-const LOCAL_DECK = {gyeong:21,simmyo:23,stones:21,music:20,memory:23};
+const LOCAL_DECK = {fete:15,gyeong:21,simmyo:23,stones:21,music:20,memory:23};
 const metrics = {
  gyeong:[['04','사건 서브페이지'],['03','탐색 방식'],['03','팀 프로젝트']],
  simmyo:[['08','산책 도장'],['02','시선 전환'],['01','오리지널 캐릭터']],
  wizard:[['39','가상 상품'],['05','컬렉션'],['04','상세 탭']],
+ fete:[['06','실제 축제'],['05','손끝 의식'],['80+','AI 영상·이미지']],
  memory:[['03','기억 분류'],['02','생성 가드'],['01','AI 파이프라인']],
  stones:[['45,716','분석한 데이터'],['3D','지구본 탐색'],['01','입양소 콘셉트']],
  vinyl:[['04','음악 시장'],['221,700','차트 관측치'],['05','클러스터']]
@@ -377,6 +379,7 @@ const WHY = {
  simmyo:['경성야록 심인광고 속 수배 고양이를 주인공으로 세워, 기록을 읽던 시선을 걷는 시선으로 바꿨습니다.','빈티지 신문 삽화의 굵은 선과 바랜 종이 질감을 조형 언어로 삼았습니다.'],
  pudding:['푸딩의 형태와 디저트의 색에서 출발해, 성격이 다른 다섯 캐릭터를 한 세계로 묶고 싶었습니다.','말랑한 클레이 질감과 파스텔 색으로 캐릭터마다 성격이 구분되도록 설계했습니다.'],
  wizard:['소설 속 \'효과에는 대가가 따른다\'는 규칙을 실제 상점을 둘러보는 경험으로 확인하고 싶었습니다.','쇼핑몰의 상품 카드·컬렉션 문법을 그대로 차용해, 상품 설명 속에 세계관의 대가 규칙이 읽히도록 했습니다.'],
+ fete:['우울한 날 멀리 있는 축제를 잠깐이라도 즐기고 싶다는 마음에서 출발해, 게임형 시안을 세 번 거친 뒤 \'현지 친구와 5분 다녀오기\'로 덜어냈습니다.','축제마다 다른 손수 만든 미니어처 재료와 실제 의식을 닮은 손짓, 마지막에 저장하는 리소그래프 포스터로 경험을 기억으로 남겼습니다.'],
  memory:['AI가 기억의 빈칸을 지어내는 문제를 막는 서비스가 필요하다고 판단했습니다.','확실·불확실·모름을 구분해 보여주는 화면 구성으로, 확인된 정보만 이미지가 되는 흐름을 설계했습니다.'],
  music:['음악을 듣는 일이 한 화면에서 끝나지 않고 역사·가사·영상으로 이어지길 원했습니다.','곡 하나를 중심으로 자료가 펼쳐지는 아카이브형 카드 구성을 택했습니다.'],
  stones:['운석의 발견 위치에 관측 편향이 반영된다는 점이 흥미로워 분석을 시작했습니다.','숫자와 차트를 캐릭터와 입양소 세계관으로 번역해, 데이터를 이야기로 읽도록 디자인했습니다.'],
@@ -386,6 +389,7 @@ const GITHUB = {
  gyeong:'https://github.com/ejdms499-wq/gyeongseong-yarok_v',
  simmyo:'https://github.com/ejdms499-wq/simmyo-walk',
  wizard:'https://github.com/ejdms499-wq/wizard-bakery',
+ fete:'https://github.com/ejdms499-wq/fete',
  memory:'https://github.com/ejdms499-wq/memory-gyeol',
  stones:'https://github.com/ejdms499-wq/STRAY_STONES',
  vinyl:'https://github.com/ejdms499-wq/DATA_VINYL'
