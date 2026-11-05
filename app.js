@@ -8,6 +8,7 @@ const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt
     {id:'gyeong', title:'경성야록', overline:'ARCHIVE / INTERACTIVE HISTORY', category:'역사 · 세계관', categoryEn:'HISTORY & CULTURE',year:'2026',cover:'assets/covers/gyeongseong_yarok_03.png', lead:'1930년대 신문을 다시 읽는 방법.', description:'3인 팀의 팀장으로 콘텐츠 방향과 비주얼 구성을 이끌었습니다. 동아일보의 1930년대 기록을 원문·현대어 풀이·지도·라디오를 오가며 탐색할 수 있도록 기획한 역사 기반 인터랙티브 웹 프로젝트입니다.',role:'3인 팀 팀장 · 콘텐츠 기획 · 비주얼 디렉션', tools:['HTML','CSS','JavaScript','역사 자료 리서치','Midjourney','GitHub Pages'],deck:{dir:'assets/decks/gyeong',count:28},links:[['LIVE WEBSITE','https://ejdms499-wq.github.io/gyeongseong-yarok_v/'],['GITHUB SOURCE','https://github.com/ejdms499-wq/gyeongseong-yarok_v'],['PROJECT NOTES','https://app.notion.com/p/KYEONGSEONG-YAROK-40592c0c250981a98ddfeb2ada731c12']]},
     {id:'simmyo',title:'심묘한 산책',overline:'ILLUSTRATION / INTERACTIVE WALK',category:'역사 · 세계관',categoryEn:'HISTORY & CULTURE',year:'2026',cover:'assets/projects/covers/simmyo_cover_web.jpg',lead:'검은 고양이 한 마리가 지나간 자리.',description:'1930년대 경성을 길고양이 심묘의 시선으로 여행하는 인터랙티브 산책입니다. 당시 공간과 문화를 조사하고, 빈티지 신문 삽화의 조형 언어를 담아 장소마다 새로운 풍경을 구성했습니다.',role:'캐릭터 설정 · 비주얼 디렉션 · 역사 리서치',tools:['Illustration','Character IP','HTML','CSS','JavaScript','Midjourney'],deck:{dir:'assets/decks/simmyo',count:23},links:[['LIVE WEBSITE','https://ejdms499-wq.github.io/simmyo-walk/'],['PROJECT NOTES','https://app.notion.com/p/SIMMYO-WALK-40592c0c25098165adb1d0f1ed83a163']]},
     {id:'fete',title:'FÊTE',overline:'INTERACTIVE STORY / FESTIVAL',category:'역사 · 세계관',categoryEn:'HISTORY & CULTURE',year:'2026',cover:'assets/covers/fete.webp?v=2',lead:'세계의 축제로 5분 여행.',description:'실제 축제의 의식을 손끝으로 따라 하는 인터랙티브 스토리 웹입니다. 현지 친구의 안내를 따라 이펭·라 토마티나·송끄란·홀리·버닝맨·죽은 자의 날을 다녀오고, 마지막엔 내가 쓴 글씨가 인쇄된 빈티지 축제 포스터를 저장합니다.',role:'기획 · 비주얼 디렉션 · AI 콘텐츠 제작 · 프런트엔드',tools:['Midjourney','Midjourney Animate','Gemini','ffmpeg','OpenCV','HTML/CSS/JS'],deck:{dir:'assets/decks/fete',count:15},links:[['PPT 원본','FETE.pptx'],['LIVE WEBSITE','https://ejdms499-wq.github.io/fete/'],['PROJECT NOTES','https://app.notion.com/p/40d92c0c25098183a47fd9c1c75eb3b8']]},
+    {id:'busan',title:'부산발 런던행',overline:'HEALING WEB GAME / STORYBOOK TRAIN',category:'캐릭터 IP',categoryEn:'CHARACTER & WORLD',year:'2026',cover:'assets/covers/busan.webp?v=1',lead:'마음의 짐을 맡기고 떠나는 하룻밤 동화 열차.',description:'꼬리표에 마음의 짐 하나를 적어 맡기면 나만의 런던행 열차가 출발합니다. 실제 시간 24시간 동안 13개 역을 지나며, 역마다 오르는 별주부·홍길동·백조 오데트 같은 동화 속 승객의 이야기를 듣고 함께 짐을 나눠 드는 힐링 웹 게임입니다.',role:'기획 · 스토리 · 아트 디렉션 · 프론트엔드 개발',tools:['three.js','HTML/CSS/JS','Supabase','Midjourney','ChatGPT Image','Flow Music','Playwright'],deck:{dir:'assets/decks/busan',count:23},links:[['PPT 원본','BUSAN_LONDON.pptx'],['LIVE WEBSITE','https://ejdms499-wq.github.io/'],['PROJECT NOTES','https://app.notion.com/p/40f92c0c250981969a64fa5584b80957']]},
     {id:'pudding',title:'푸딩베리',overline:'ORIGINAL CHARACTER IP / STORY',category:'캐릭터 IP',categoryEn:'CHARACTER & WORLD',year:'2026',cover:'assets/projects/covers/puddingberry.png',lead:'말랑한 다섯 친구의 달콤한 세계.',description:'푸딩의 형태와 디저트의 색에서 출발해 다섯 가지 성격을 가진 캐릭터를 기획했습니다. 각 캐릭터의 소품, 색채, 말투, 관계성을 하나의 브랜드 IP로 연결하는 프로젝트입니다.',role:'오리지널 IP 기획 · 캐릭터 디자인 · 세계관',tools:['Midjourney','Character Design','3D Clay Look','Notion'],links:[['PROJECT NOTES','https://app.notion.com/p/38e92c0c2509801587b0fbc171ec189f'],['VIDEO ARCHIVE','https://www.youtube.com/@BerryPudding_TV/playlists']]},
     {id:'wizard',title:'WIZARD BAKERY',overline:'WEB EXPERIENCE / FICTIONAL COMMERCE',category:'캐릭터 IP',categoryEn:'CHARACTER & WORLD',year:'2026',cover:'assets/projects/covers/wizard_bakery_wide.webp',lead:'효과에는 반드시 대가가 따릅니다.',description:'소설 「위저드 베이커리」를 모티프로 한 비공식 팬 프로젝트입니다. 문학 속 규칙을 39개의 상품과 다섯 컬렉션으로 해석해, 실제 상점을 탐색하는 듯한 인터랙티브 웹 경험을 제작했습니다.',role:'세계관 기획 · UX/UI · 프론트엔드 · AI 비주얼',tools:['React','HashRouter','JSON','Midjourney','GitHub Pages'],deck:{dir:'assets/decks/wizard',count:18},links:[['LIVE WEBSITE','https://ejdms499-wq.github.io/wizard-bakery/'],['PROJECT NOTES','https://app.notion.com/p/WIZARD-BAKERY-3d592c0c250981c48c5fc89fb13109d9']]},
     {id:'memory',title:'기억결',overline:'AI SERVICE / MEMORY DESIGN',category:'AI 서비스 기획',categoryEn:'AI & DIGITAL',year:'2026',cover:'assets/projects/covers/memory_gyeol.png',lead:'AI가 기억의 빈칸을 지어내지 않도록.',description:'사용자의 기억을 보존하는 데서 출발하는 AI 경험 서비스입니다. 기억의 확실성과 불확실성을 구분하고, 질문·이미지 생성·검증 단계를 거쳐 조심스럽게 재구성하는 흐름을 설계했습니다.',role:'서비스 기획 · AI 자동화 · 인터랙션 디자인',tools:['n8n','OpenAI API','Supabase','Lovable','RLS'],deck:{dir:'assets/decks/memory',count:23},links:[['PPT 원본','기억결.pptx'],['LIVE WEBSITE','https://ejdms499-wq.github.io/memory-gyeol/'],['PROJECT NOTES','https://app.notion.com/p/MEMORY-GYEOL-40592c0c250981bfa33cd273d195a9ab']]},
@@ -252,11 +253,12 @@ const LOCAL_COVERS = {
  'assets/projects/covers/stray_stones_wide.webp':'assets/covers/stray_stones_selected.png'
  
 };
-const LOCAL_DECK = {fete:15,gyeong:21,simmyo:23,stones:21,music:20,memory:23};
+const LOCAL_DECK = {busan:23,fete:15,gyeong:21,simmyo:23,stones:21,music:20,memory:23};
 const metrics = {
  gyeong:[['04','사건 서브페이지'],['03','탐색 방식'],['03','팀 프로젝트']],
  simmyo:[['08','산책 도장'],['02','시선 전환'],['01','오리지널 캐릭터']],
  wizard:[['39','가상 상품'],['05','컬렉션'],['04','상세 탭']],
+ busan:[['13','개 역'],['24h','실시간 여정'],['312','컷 이야기']],
  fete:[['06','실제 축제'],['05','손끝 의식'],['80+','AI 영상·이미지']],
  memory:[['03','기억 분류'],['02','생성 가드'],['01','AI 파이프라인']],
  stones:[['45,716','분석한 데이터'],['3D','지구본 탐색'],['01','입양소 콘셉트']],
@@ -379,6 +381,7 @@ const WHY = {
  simmyo:['경성야록 심인광고 속 수배 고양이를 주인공으로 세워, 기록을 읽던 시선을 걷는 시선으로 바꿨습니다.','빈티지 신문 삽화의 굵은 선과 바랜 종이 질감을 조형 언어로 삼았습니다.'],
  pudding:['푸딩의 형태와 디저트의 색에서 출발해, 성격이 다른 다섯 캐릭터를 한 세계로 묶고 싶었습니다.','말랑한 클레이 질감과 파스텔 색으로 캐릭터마다 성격이 구분되도록 설계했습니다.'],
  wizard:['소설 속 \'효과에는 대가가 따른다\'는 규칙을 실제 상점을 둘러보는 경험으로 확인하고 싶었습니다.','쇼핑몰의 상품 카드·컬렉션 문법을 그대로 차용해, 상품 설명 속에 세계관의 대가 규칙이 읽히도록 했습니다.'],
+ busan:['접속만으로 마음이 쉬어 가는 웹을 만들고 싶다는 마음에서 출발해, 실사 창가·스케치 승객·단면 열차·근심 수하물까지 다섯 번 방향을 바꾼 끝에 \'어릴 적 동화책 속 승객과 하룻밤 기차 여행\'으로 정리했습니다.','처음의 실시간 기차 창가 감성은 끝까지 지키고, 13편의 이야기와 팝업북·편지·꼬리표 카드로 다시 들르고 싶은 이유를 더했습니다.'],
  fete:['우울한 날 멀리 있는 축제를 잠깐이라도 즐기고 싶다는 마음에서 출발해, 게임형 시안을 세 번 거친 뒤 \'현지 친구와 5분 다녀오기\'로 덜어냈습니다.','축제마다 다른 손수 만든 미니어처 재료와 실제 의식을 닮은 손짓, 마지막에 저장하는 리소그래프 포스터로 경험을 기억으로 남겼습니다.'],
  memory:['AI가 기억의 빈칸을 지어내는 문제를 막는 서비스가 필요하다고 판단했습니다.','확실·불확실·모름을 구분해 보여주는 화면 구성으로, 확인된 정보만 이미지가 되는 흐름을 설계했습니다.'],
  music:['음악을 듣는 일이 한 화면에서 끝나지 않고 역사·가사·영상으로 이어지길 원했습니다.','곡 하나를 중심으로 자료가 펼쳐지는 아카이브형 카드 구성을 택했습니다.'],
@@ -389,6 +392,7 @@ const GITHUB = {
  gyeong:'https://github.com/ejdms499-wq/gyeongseong-yarok_v',
  simmyo:'https://github.com/ejdms499-wq/simmyo-walk',
  wizard:'https://github.com/ejdms499-wq/wizard-bakery',
+ busan:'https://github.com/ejdms499-wq/ejdms499-wq.github.io',
  fete:'https://github.com/ejdms499-wq/fete',
  memory:'https://github.com/ejdms499-wq/memory-gyeol',
  stones:'https://github.com/ejdms499-wq/STRAY_STONES',
